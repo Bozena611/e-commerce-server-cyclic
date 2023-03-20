@@ -23,7 +23,7 @@ class CartController {
 	        { $addToSet: { products: newProduct } }
 	      );
 	      res.send({newProduct});
-			}	
+			}
 		} catch(err){
 			res.send({err});
 		}
@@ -60,18 +60,18 @@ class CartController {
       path: "products.product",
       model: "products"
     });
-    res.status(200).json(cart.products); 
+    res.status(200).json(cart.products);
 		}
 		catch(err){
 			res.send({err});
 		}
 	};
 
-	
+
 // CLEAR CART
 
 	async clearCart(req,res) {
-		let {user_id} = req.body; 
+		let {user_id} = req.body;
 		try{
 			const cart = await Cart.findOneAndUpdate(
       { user:user_id },
